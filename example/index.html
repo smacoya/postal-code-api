@@ -43,6 +43,7 @@
         <table class="table table-striped">
           <tr><th></th><th>prefecture</th><th>address1</th><th>address2</th><th>address3</th><th>address4</th></tr>
           <tr><th>ja</th><td>{{ address.ja.prefecture }}</td><td>{{ address.ja.address1 }}</td><td>{{ address.ja.address2 }}</td><td>{{ address.ja.address3 }}</td><td>{{ address.ja.address4 }}</td></tr>
+          <tr><th>ja_kana</th><td>{{ address.ja_kana.prefecture }}</td><td>{{ address.ja_kana.address1 }}</td><td>{{ address.ja_kana.address2 }}</td><td>{{ address.ja_kana.address3 }}</td><td>{{ address.ja_kana.address4 }}</td></tr>
           <tr><th>en</th><td>{{ address.en.prefecture }}</td><td>{{ address.en.address1 }}</td><td>{{ address.en.address2 }}</td><td>{{ address.en.address3 }}</td><td>{{ address.en.address4 }}</td></tr>
         </table>
       </div>
@@ -82,7 +83,7 @@
             return;
           }
 
-          var endpoint = 'https://arrow-payment.github.io/postal-code-api/api/v1';
+          var endpoint = 'https://arrow-payment.github.io/postal-code-api/api/v2';
           var code1 = $scope.code.replace(/^([0-9]{3}).*/, "$1");
           var code2 = $scope.code.replace(/.*([0-9]{4})$/, "$1");
 
