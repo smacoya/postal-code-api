@@ -1,27 +1,27 @@
 # 郵便番号 API
 
-[![Build Status](https://travis-ci.org/madefor/postal-code-api.svg?branch=master)](https://travis-ci.org/madefor/postal-code-api)
+この郵便番号APIはmadefor様により作成されたレポジトリを引き継いだものになります。
 
-この郵便番号APIはGitHubページを使用して静的なファイルで配信しているため信頼性が高く、さらにオープンソースなのでクライアントワークでも安心して使用できます。
+GitHubページを使用して静的なファイルで配信しているため信頼性が高く、さらにオープンソースなのでクライアントワークでも安心して使用できます。
 
 また、郵便番号から英語の住所を取得することも可能です。（大口事業所個別番号は英語には対応していません。）
 
-なお、このAPIはAWSのLambdaを使用して毎日更新しています。
+なお、このAPIはGitHub Actionsを使用して毎日更新しています。
 
 ## デモ
-https://madefor.github.io/postal-code-api/
+https://arrow-payment.github.io/postal-code-api/
 
 ## エンドポイント
 
 ```
-https://madefor.github.io/postal-code-api/api/v1/
+https://arrow-payment.github.io/postal-code-api/api/v1/
 ```
 
 ## 使い方
 
 郵便番号が`100-0014`(東京都千代田区永田町)の住所を取得したい場合。
 
-https://madefor.github.io/postal-code-api/api/v1/100/0014.json
+https://arrow-payment.github.io/postal-code-api/api/v1/100/0014.json
 
 ```json
 {
@@ -50,7 +50,7 @@ https://madefor.github.io/postal-code-api/api/v1/100/0014.json
 
 1つの郵便番号に複数の住所がある場合は以下のような感じです。
 
-https://madefor.github.io/postal-code-api/api/v1/618/0000.json
+https://arrow-payment.github.io/postal-code-api/api/v1/618/0000.json
 
 ```json
 {
@@ -96,7 +96,7 @@ https://madefor.github.io/postal-code-api/api/v1/618/0000.json
 
 大口事業所個別番号では英語の住所は空になっています。
 
-https://madefor.github.io/postal-code-api/api/v1/100/8798.json
+https://arrow-payment.github.io/postal-code-api/api/v1/100/8798.json
 
 ```json
 {
@@ -183,14 +183,14 @@ https://madefor.github.io/postal-code-api/api/v1/100/8798.json
   3. 郵便番号の上3桁の名前を持つディレクトリを作り、その中に下4桁の名前を持つJSONを作成。
 * 上述の処理をTravis CIで実行し、その結果をgh-pagesにpushしています。
   * 郵便番号データの最後の行にある沖縄県八重山郡与那国町のJSONがあるかどうかをチェックし、すべてのJSONが生成されたものとしています。いいテスト方法があればぜひプルリクエストをお願いします。
-* AWSのLambdaを使用して毎日更新しています。（[参考](https://github.com/miya0001/travis-builder-for-lambda)）
+* GitHub Actionsを使用して毎日更新しています
 
 ## ローカルでJSONデータを作成する
 
 このリポジトリをcloneしてください。
 
 ```
-$ git@github.com:madefor/postal-code-api.git
+$ git@github.com:arrow-payment/postal-code-api.git
 ```
 
 必要なモジュールをインストールしてください。
@@ -214,10 +214,12 @@ $ npm start
 
 ## 貢献
 
-* バグレポートは[Issue](https://github.com/madefor/postal-code-api/issues)にお願いします。
+* バグレポートは[Issue](https://github.com/arrow-payment/postal-code-api/issues)にお願いします。
 * プルリクエストは大歓迎です。
 * Starをつけてもらうと開発者たちのモチベーションが上がります。
+* ぜひオリジナルのレポジトリ(madefor/postal-code-api)のほうにもStarをお願いします
 
 ## ライセンス
 
 MIT
+(弊社変更部分についてはPublic Domainとします。madefor様のライセンス表記は引き続き必要です)
