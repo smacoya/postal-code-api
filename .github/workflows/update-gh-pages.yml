@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - 'master'
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update-gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Prepare
+        run: npm install
+      - name: Build
+        run: npm run build
+      - run: cp ./example/index.html ./api/index.html
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./api
