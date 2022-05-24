@@ -8,10 +8,12 @@ var chmod = require( 'gulp-chmod' );
 var postal2json = require( './lib/postal2json.js' );
 var jigyosyo2json = require( './lib/jigyosyo2json.js' );
 var v1 = require( './lib/v1.js' );
+var v2 = require( './lib/v2.js' );
 
 gulp.task( 'download', function () {
   var urls = [
     'http://www.post.japanpost.jp/zipcode/dl/roman/ken_all_rome.zip',
+    'http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip',
     'http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip'
   ];
   return download( urls )
@@ -24,23 +26,36 @@ gulp.task( 'download', function () {
 /**
  * Create an API of the postal code.
  */
-gulp.task( 'v1', gulp.series( 'download', function () {
+gulp.task( 'v1', function () {
   return gulp.src( 'api/KEN_ALL_ROME.CSV' )
     .pipe( postal2json() )
     .pipe( v1() )
     .pipe( chmod( 644 ) )
     .pipe( gulp.dest( 'api/v1' ) );
-} ));
+} );
 
 /**
  * Create an API of the Jigyosyo postal code.
  */
-gulp.task( 'v1-jigyosyo', gulp.series('download', function () {
+gulp.task( 'v1-jigyosyo', function () {
   return gulp.src( 'api/JIGYOSYO.CSV' )
     .pipe( jigyosyo2json() )
     .pipe( v1() )
     .pipe( chmod( 644 ) )
     .pipe( gulp.dest( 'api/v1' ) );
-} ));
+} );
 
-gulp.task( 'default', gulp.parallel( 'v1', 'v1-jigyosyo' ) );
+/**
+ * Create an v2 API
+ */
+gulp.task( 'v2', function () {
+  return gulp.src( 'gulpfile.js' ) // dummy input
+    .pipe( v2() )
+    .pipe( chmod( 644 ) )
+    .pipe( gulp.dest( 'api/v2' ) );
+} );
+
+exports.default = gulp.series(
+  'download',
+  gulp.parallel( 'v1', 'v1-jigyosyo', 'v2' ),
+);
