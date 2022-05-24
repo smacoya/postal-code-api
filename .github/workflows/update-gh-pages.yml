@@ -17,10 +17,12 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - run: cp ./example/index.html ./api/index.html
+      - run: mkdir ./pages
+      - run: mv ./api ./pages/api
+      - run: cp ./example/index.html ./pages/index.html
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./api
+          publish_dir: ./pages
