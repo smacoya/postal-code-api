@@ -49,7 +49,7 @@
 
       <div ng-if="data.json"><pre>{{ data.json }}</pre></div>
 
-      <div class="footer"><a href="https://github.com/madefor/postal-code-api/">Postal Code API</a> by <a href="https://github.com/madefor">Made for _____ Team</a></div>
+      <div class="footer"><a href="https://github.com/arrow-payment/postal-code-api/">Postal Code API</a> by <a href="https://github.com/madefor">Made for _____ Team</a>, maintained by S&amp;A Co.,Ltd.</div>
 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
       <script type="text/javascript">
@@ -82,7 +82,7 @@
             return;
           }
 
-          var endpoint = 'https://madefor.github.io/postal-code-api/api/v1';
+          var endpoint = 'https://arrow-payment.github.io/postal-code-api/api/v1';
           var code1 = $scope.code.replace(/^([0-9]{3}).*/, "$1");
           var code2 = $scope.code.replace(/.*([0-9]{4})$/, "$1");
 
