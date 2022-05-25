@@ -80,8 +80,8 @@ https://arrow-payment.github.io/postal-code-api/api/v2/618/0000.json
         "address4":""
       },
       "en":{
-        "prefecture":"Osaka",
-        "address1":"Shimamoto-cho, Mishima-gun",
+        "prefecture":"Kyoto",
+        "address1":"Oyamazaki-cho, Otokuni-gun",
         "address2":"",
         "address3":"",
         "address4":""
@@ -104,8 +104,8 @@ https://arrow-payment.github.io/postal-code-api/api/v2/618/0000.json
         "address4":""
       },
       "en":{
-        "prefecture":"",
-        "address1":"",
+        "prefecture":"Osaka",
+        "address1":"Shimamoto-cho, Mishima-gun",
         "address2":"",
         "address3":"",
         "address4":""
@@ -115,7 +115,7 @@ https://arrow-payment.github.io/postal-code-api/api/v2/618/0000.json
 }
 ```
 
-大口事業所個別番号では英語の住所は空になっています。
+大口事業所個別番号では英語の事業所名は空になっています。
 また、番地の読み仮名は提供されないため空欄になっています。
 
 https://arrow-payment.github.io/postal-code-api/api/v2/100/8791.json
@@ -141,9 +141,9 @@ https://arrow-payment.github.io/postal-code-api/api/v2/100/8791.json
         "address4":"ﾆﾂﾎﾟﾝﾕｳｾｲ ｶﾌﾞｼｷｶﾞｲｼﾔ"
       },
       "en":{
-        "prefecture":"",
-        "address1":"",
-        "address2":"",
+        "prefecture":"Tokyo",
+        "address1":"Chiyoda-ku",
+        "address2":"Otemachi",
         "address3":"",
         "address4":""
       }
