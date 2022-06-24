@@ -12,7 +12,7 @@ var v2 = require( './lib/v2.js' );
 
 gulp.task( 'download', function () {
   var urls = [
-    'http://www.post.japanpost.jp/zipcode/dl/roman/ken_all_rome.zip',
+    'http://www.post.japanpost.jp/zipcode/dl/roman/naccs1.zip',
     'http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip',
     'http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip'
   ];
@@ -27,7 +27,7 @@ gulp.task( 'download', function () {
  * Create an API of the postal code.
  */
 gulp.task( 'v1', function () {
-  return gulp.src( 'api/KEN_ALL_ROME.CSV' )
+  return gulp.src( 'api/NACCS1.CSV' )
     .pipe( postal2json() )
     .pipe( v1() )
     .pipe( chmod( 644 ) )
